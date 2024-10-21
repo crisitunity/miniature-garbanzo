@@ -1,0 +1,76 @@
+\documentclass[a0,portrait]{a0poster}
+
+\usepackage{multicol}
+\usepackage[svgnames]{xcolor}
+\usepackage{fontspec}
+\usepackage{graphicx}
+\usepackage{subcaption}
+%\usepackage{float}                 %not needed because going to not use floats?
+%\usepackage[export]{adjustbox}
+\usepackage{url}                    % nicely formatted URLs?
+\usepackage[margin=0cm]{geometry}   % setting thus to use full page
+\usepackage{showframe}
+\usepackage{trimclip}
+
+\definecolor{bscreen}{RGB}{228,16,112}
+
+\newcommand\picdims[4][]{%
+  \setbox0=\hbox{\includegraphics[#1]{#4}}%
+  \clipbox{.5\dimexpr\wd0-#2\relax{} %
+           .5\dimexpr\ht0-#3\relax{} %
+           .5\dimexpr\wd0-#2\relax{} %
+           .5\dimexpr\ht0-#3\relax}{\includegraphics[#1]{#4}}}
+
+
+\setmainfont{Plau} %main font is Plau
+
+
+\begin{document}
+
+  {\centering
+%  \includegraphics[width=.5\linewidth]{HeaderPD.eps}
+  \includegraphics[height=107mm]{HeaderPD.eps}
+\vspace{10mm}
+
+
+%\includegraphics[width=\linewidth]{main.jpg}
+\picdims[width=\linewidth]{\linewidth}{355mm}{main.jpg}\par
+\vspace{2mm}
+
+%\includegraphics[width=0.4\linewidth]{small1.jpg}
+%\includegraphics[width=0.4\linewidth]{small2.jpg}
+
+%\picdims[width=0.495\linewidth]{0.495\linewidth}{202mm}{small1.jpg}
+%\picdims[width=0.495\linewidth]{0.495\linewidth}{202mm}{small2.jpg}\par
+
+\picdims[width=418.5mm]{418.5mm}{202mm}{small1.jpg}
+\hfill  % To force second image to the right.
+\picdims[width=418.5mm]{418.5mm}{202mm}{small2.jpg}\par
+
+
+  \par} % putting \centering in braces and using \par will stop the centering at this point
+
+\vspace{2mm}
+
+
+%%% Commenting out whole block
+%\begin{minipage}[b]{0.4\linewidth}
+%\veryHuge \color{pink} \textbf{SALE}
+%
+%\end{minipage}
+%
+%\begin{minipage}[b]{0.6\linewidth}
+%\veryHuge \color{pink} \textbf{Bed, Bath, Car, SQM}
+%\end{minipage}
+%%% End commenting
+
+%% need to make the box below taller
+{\noindent\hspace*{\dimexpr-\oddsidemargin-1in\relax}%
+ \colorbox{bscreen}{\makebox[\dimexpr\paperwidth-2\fboxsep\relax]{
+  \veryHuge \color{white} \hspace{10mm} \strut \textbf{SALE} \hfill \textbf{Bed, Bath, Car, SQM}
+  }}%
+ \hspace*{-\paperwidth}}
+
+
+
+\end{document}
